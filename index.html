@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网页资源下载器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            width: auto;
+            padding: 10px 20px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>网页资源下载器</h1>
+        <form action="download.php" method="post">
+            <label for="url">网页URL:</label>
+            <input type="url" id="url" name="url" required>
+            <label for="filename">保存的文件名:</label>
+            <input type="text" id="filename" name="filename" required>
+            <input type="hidden" name="csrf_token" value="<?php echo hash('sha256', session_id()); ?>">
+            <input type="submit" value="下载">
+        </form>
+    </div>
+</body>
+</html>
